@@ -128,5 +128,46 @@ After a successful workflow run, navigate to the "Packages" section of your GitH
 - Make sure you have permissions to push to the GitHub Container Registry (GHCR)
 - Ensure that the GitHub Secrets (if any) are correctly configured in your repository settings
 
+## ⭐ Step 5 — Setup Minikube cluster locally on your machine
+
+### 1. Make sure you have minikube installed. If not, install it.
+- For macOS using Homebrew:
+```bash
+brew install minikube
+```
+- For other OS, follow the instructions at: https://minikube.sigs.k8s.io/docs/start/
+    
+### 2. Start Minikube
+```bash
+minikube start \
+  --driver=docker \
+  --kubernetes-version=v1.30.0 \
+  --container-runtime=containerd \
+  --cpus=4 \
+  --memory=6144
+```
+### 3. Verify Minikube is running
+```bash
+minikube status
+```
+
+## ⭐ Step 6 — Install ArgoCD on Minikube
+### 1. Install ArgoCD using kubectl
+```bash
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+### 2. Access the ArgoCD server using port forwarding
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+---
+```
+### 3. Login to ArgoCD UI
+- Open your browser and navigate to `http://localhost:8080`
+- The default username is `admin`
+- To get the default password, run:
+```bash
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+```
 
 
