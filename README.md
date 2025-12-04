@@ -32,7 +32,7 @@ uvicorn app:app --reload
 ### 6. Access the application
 Open your browser and navigate to `http://127.0.0.1:8000`
 
-## Troubleshooting
+### Troubleshooting
 - Ensure all dependencies are installed correctly
 - Verify the virtual environment is activated
 - Check that port 8000 is available (not blocked by firewalls or other applications)
@@ -47,7 +47,7 @@ kill -9 <PID>
 ```
 Replace `<PID>` with the process ID from the output above.
 
-## ⭐Step 2 — Create Dockerfile
+## ⭐ Step 2 — Create Dockerfile
 
 ### 1. Create a Dockerfile
 Create a file named `Dockerfile` in the project root as given in the Dockerfile in this repository.
@@ -63,7 +63,7 @@ Open your browser and navigate to `http://localhost:8000`, or use curl:
 ```bash
 curl http://localhost:8000
 ```
-## Troubleshooting Docker
+### Troubleshooting Docker
 - Ensure Docker is installed and running on your machine
 - Verify the Dockerfile is correctly set up
 - Check for any errors during the build process and resolve them accordingly
