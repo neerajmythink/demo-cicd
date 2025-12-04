@@ -160,7 +160,6 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 ### 2. Access the ArgoCD server using port forwarding
 ```bash
 kubectl port-forward svc/argocd-server -n argocd 8080:443
----
 ```
 ### 3. Login to ArgoCD UI
 - Open your browser and navigate to `http://localhost:8080`
@@ -170,4 +169,23 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 ```
 
+## ⭐ Step 7 — Create Kubernetes YAML for deployment
+### 1. Create a k8s folder and add `deployment.yaml` and `service.yaml` file
+```bash
+mkdir k8s
+```
+Add a file deployment `k8s/deployment.yaml` with the content provided in the `deployment.yaml` file in this repository and update the image section as below:
 
+```yaml
+image: ghcr.io/neerajmythink/demo-cicd:latest
+```
+replace `neerajmythink` with your GitHub username.
+
+Also add a file service `k8s/service.yaml` with the content provided in the `service.yaml` file in this repository.
+
+### 2. Commit and push the deployment file
+```bash
+git add k8s/deployment.yaml k8s/service.yaml
+git commit -m "Add Kubernetes deployment and service manifests"
+git push origin main
+```
