@@ -100,11 +100,11 @@ git push origin main
 ## ⭐ Step 4 — Set up GitHub Actions for CI and push Docker image to GitHub Container Registry (GHCR)
 ### 1. Create GitHub Actions workflow file
 Create a file at `.github/workflows/ci.yml` with the content provided in the `ci.yml` file in this repository.
-'''bash
+```bash
 mkdir -p .github/workflows
 nano .github/workflows/ci.yml
-'''
-add the content from `ci.yml` file in this repository.
+```
+Then add the content from `ci.yml` file in this repository.
 
 ### 2. Commit and push the workflow file
 ```bash
@@ -117,7 +117,7 @@ git push origin main
 your first CI pipeline is ready. Check in GitHub > Actions.
 
 ### 4. Verify Docker image in GitHub Container Registry
-After a successful workflow run, navigate to the "Packages" section of your GitHub repository to see the pushed Docker image.
+After a successful workflow run, navigate to the "Packages" section of your GitHub repository to see the pushed Docker image. 
 
 ### Troubleshooting GitHub Actions
 - Ensure the workflow file is correctly placed in `.github/workflows/ci.yml`
