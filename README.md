@@ -72,14 +72,31 @@ curl http://localhost:8000
 docker logs <container_id>
 ```
 
-## Step 3 — Push the code to GitHub 
-'''bash
+## Step 3 — Push the code to GitHub
+
+### 1. Initialize a git repository
+```bash
 git init
+```
+
+### 2. Add the remote repository
+```bash
 git remote add origin <your-repo-url>
+```
+
+### 3. Stage and commit your changes
+```bash
 git add .
 git commit -m "initial commit"
+```
+
+### 4. Push to GitHub
+```bash
 git push origin main
-'''
+```
+
+**Note:** Replace `<your-repo-url>` with your actual GitHub repository URL (e.g., `https://github.com/username/demo-cicd.git`)
+
 
 
 
