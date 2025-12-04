@@ -1,6 +1,6 @@
 # demo-cicd
 
-## Step 1 — Setup Instructions for FastAPI Application
+## ⭐ Step 1 — Setup Instructions for FastAPI Application
 
 ### 1. Create project folder and move to it
 ```bash
@@ -47,7 +47,7 @@ kill -9 <PID>
 ```
 Replace `<PID>` with the process ID from the output above.
 
-## Step 2 — Create Dockerfile
+## ⭐Step 2 — Create Dockerfile
 
 ### 1. Create a Dockerfile
 Create a file named `Dockerfile` in the project root as given in the Dockerfile in this repository.
@@ -72,7 +72,7 @@ curl http://localhost:8000
 docker logs <container_id>
 ```
 
-## Step 3 — Push the code to GitHub
+## ⭐ Step 3 — Push the code to GitHub
 
 ### 1. Initialize a git repository
 ```bash
