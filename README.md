@@ -1,6 +1,6 @@
 # demo-cicd
 
-## Setup Instructions
+## Step 1 — Setup Instructions for FastAPI Application
 
 ### 1. Create project folder and move to it
 ```bash
@@ -46,5 +46,40 @@ lsof -i :8000
 kill -9 <PID>
 ```
 Replace `<PID>` with the process ID from the output above.
+
+## Step 2 — Create Dockerfile
+
+### 1. Create a Dockerfile
+Create a file named `Dockerfile` in the project root as given in the Dockerfile in this repository.
+
+### 2. Build the Docker image and test it locally using port binding
+```bash
+docker build -t demo-cicd .
+docker run -d -p 8000:8000 demo-cicd
+```
+
+### 3. Access the application running in Docker container
+Open your browser and navigate to `http://localhost:8000`, or use curl:
+```bash
+curl http://localhost:8000
+```
+## Troubleshooting Docker
+- Ensure Docker is installed and running on your machine
+- Verify the Dockerfile is correctly set up
+- Check for any errors during the build process and resolve them accordingly
+- If the container fails to start, check the logs using:
+```bash
+docker logs <container_id>
+```
+
+## Step 3 — Push the code to GitHub 
+'''bash
+git init
+git remote add origin <your-repo-url>
+git add .
+git commit -m "initial commit"
+git push origin main
+'''
+
 
 
