@@ -1,4 +1,16 @@
-# demo-cicd
+# demo-cicd 
+This repository demonstrates a complete CI/CD pipeline for a simple FastAPI application using GitHub Actions, Docker, GitHub Container Registry (GHCR), Minikube, and ArgoCD. The main goal is to showcase how to automate the build, test, and deployment process of a FastAPI application to a local Kubernetes cluster. After following the steps below, you will have a fully functional CI/CD pipeline that automatically builds and deploys your FastAPI application whenever changes are pushed to the GitHub repository. Make sure to replace placeholders like `<your-repo-url>` and `<your-github-username>` with your actual repository URL and GitHub username. 
+
+Short description of the components used:
+- **FastAPI**: A modern, fast (high-performance) web framework for building APIs with Python 3.7+ based on standard Python type hints.
+- **Uvicorn**: A lightning-fast ASGI server implementation, using uvloop and httptools.
+- **Docker**: A platform for developing, shipping, and running applications in containers.
+- **GitHub Actions**: A CI/CD service that allows you to automate your build, test, and deployment pipeline directly from your GitHub repository.
+- **GitHub Container Registry (GHCR)**: A service provided by GitHub to host and manage Docker container images.
+- **Minikube**: A tool that makes it easy to run Kubernetes locally.
+- **ArgoCD**: A declarative, GitOps continuous delivery tool for Kubernetes.
+
+
 
 ## ⭐ Step 1 — Setup Instructions for FastAPI Application
 
@@ -189,3 +201,14 @@ git add k8s/deployment.yaml k8s/service.yaml
 git commit -m "Add Kubernetes deployment and service manifests"
 git push origin main
 ```
+
+## ⭐ Step 8 — Configure ArgoCD Application to deploy the FastAPI app
+### 1. Create a new application in ArgoCD
+- In the ArgoCD UI, click on "New App"
+- Fill in the application details:
+  - Application Name: demo-cicd
+  - Project: default
+  - Sync Policy: Automatic
+  - Repository URL: `<your-repo-url>`
+  - Revision: HEAD
+  - Path: k8s
